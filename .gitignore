@@ -1,0 +1,12 @@
+# Ignore Python bytecode and cache
+__pycache__/
+*.py[cod]
+
+# Ignore the virtual environment
+.venv/
+
+# Ignore log files
+*.log
+
+# Ignore specific files if they contain sensitive data
+*.env
