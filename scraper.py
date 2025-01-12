@@ -108,25 +108,23 @@ class Scraper():
         section_id_match = re.search(r'#(.*)', link)
         if section_id_match:
             section_id = section_id_match.group(1)
-            print(f"Looking for section ID: {section_id}")
             
             target_heading = soup.find(lambda tag: tag.name in ['h2', 'h3'] and tag.get('id') == section_id)
             if target_heading:
-                print(f"Found section ID: {section_id}")
                 content = []
                 for sibling in target_heading.find_next_siblings():
                     if sibling.name in ['h2', 'h3']:
                         break
                     content.append(str(sibling))
                 # Prepend the link to the content
-                content.insert(0, f'<p>Source: <a href="{link}">{link}</a></p>')
+                content.insert(0, f'<p>Source: \n <a href="{link}">{link}</a></p>')
                 return ''.join(content)
             else:
                 # Prepend the link to the full article text
-                return f'<p>Source: <a href="{link}">{link}</a></p>{article.get_text(strip=True)}'
+                return f'<p>Source: \n <a href="{link}">{link}</a></p>{article.get_text(strip=True)}'
         else:
             # Prepend the link to the full article text
-            return f'<p>Source: <a href="{link}">{link}</a></p>{article.get_text(strip=True)}'
+            return f'<p>Source: \n <a href="{link}">{link}</a></p>{article.get_text(strip=True)}'
 
         
     @staticmethod

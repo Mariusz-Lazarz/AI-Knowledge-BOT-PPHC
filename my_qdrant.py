@@ -65,4 +65,5 @@ class ClientQdrant:
 
     def search_points(self, vector):
         return self.client.search(collection_name=self.collection_name, 
-                           query_vector=vector, limit=5, score_threshold=0.65)
+                           query_vector=vector, limit=5, score_threshold=0.3)
+

@@ -25,7 +25,6 @@ class ChatClient:
         self.qdrant = qdrant
         self.chat_history = []
         self.banner = banner
-        self.spinner = Spinner("Generating response...")
         logger = logging.getLogger(__name__)
 
     def start(self):
@@ -42,6 +41,8 @@ class ChatClient:
 
             logger.debug(f"User input: {user_input}")
 
+
+            self.spinner = Spinner("Generating response...")
             self.spinner.start()
 
             try:

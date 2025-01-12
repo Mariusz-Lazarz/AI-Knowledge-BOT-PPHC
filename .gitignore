@@ -10,3 +10,6 @@ __pycache__/
 
 # Ignore specific files if they contain sensitive data
 *.env
+
+# Ignore test file
+*test.py
