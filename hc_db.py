@@ -31,7 +31,7 @@ def init():
     qdrant.create_collection()
     logger.info("Qdrant collection created.")
 
-    all_article_links = scraper.get_article_links()
+    all_article_links = scraper.get_all_links()
 
     for link in all_article_links:
         logger.info(f"Processing link: {link}")
@@ -52,7 +52,7 @@ def init():
             logger.debug(f"Vector embeddings for {link}")
 
             point = create_point(link, summary, vector)
-            logger.info(f"Created point for {link}")
+            logger.debug(f"Created point for {link}")
 
             points.append(point)
             qdrant.upsert_points(points)

@@ -76,7 +76,7 @@ class Scraper():
 
         article = soup.select_one("article")
         if not article:
-            print("No article section found.")
+            print(f"No article section found for {link}")
             return [link]
 
         anchors = article.find_all("a", class_="heading-anchor")
