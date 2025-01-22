@@ -4,6 +4,8 @@ import logging
 import os
 from spinner import Spinner
 
+## test
+
 log_file = "chat.log"
 
 if os.path.exists(log_file):
